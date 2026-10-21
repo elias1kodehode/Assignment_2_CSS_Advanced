@@ -7,41 +7,53 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-color: yellow;
+  background-color: gainsboro;
 }
 main {
   margin: 0 auto;
   width: 80%;
   position: relative;
 }
+h1 {
+  margin-top: 25px;
+}
 h1::before {
   content: "";
   width: 100%;
-  background-color: black;
+  background-color: yellow;
   height: 3px;
   position: absolute;
 }
 ul {
   margin: 25px;
 }
-ul li {
-  background-color: black;
-  color: yellow;
+ul li:not(.ignore) {
+  background-color: seashell;
+  color: purple;
   list-style-position: inside;
 }
-ul li:nth-child(odd) {
-  background-color: yellow;
+ul li:nth-child(odd):not(.ignore) {
+  background-color: grey;
   color: black;
 }
 ul li::after {
   content: " ★";
   font-size: 20px;
+  color: yellow;
 }
-ul li {
-  background-color: black;
+ul li:first-child {
+  color: white;
+}
+ul li:last-child {
+  color: aqua;
+}
+ul li:focus {
+  box-shadow: 0 0 5px black;
+  transform: scale(1.2);
 }
 
 button {
+  margin-top: 20px;
   padding: 6px 16px;
   background-color: yellow;
   color: black;
@@ -63,4 +75,34 @@ section {
   padding: 15px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  padding: 5px;
+}
+div {
+  border: 1px black solid;
+  padding: 5px;
+}
+div:nth-of-type(1n + 2) {
+  background-color: black;
+  border: 1px white solid;
+}
+.text-container {
+  position: relative;
+}
+p::before {
+  content: "";
+  width: 100%;
+  background-color: yellow;
+  height: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+p::after {
+  content: "";
+  width: 100%;
+  background-color: yellow;
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
